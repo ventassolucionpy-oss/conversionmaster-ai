@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Dark Premium Palette */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f1a;
+  --bg-tertiary: #141425;
+  --bg-card: #111120;
+  --bg-dim: #1a1a2e;
+
+  --accent: #6C4FFF;
+  --accent-light: #9B7AFF;
+  --accent-dim: rgba(108, 79, 255, 0.15);
+
+  --gold: #F5A623;
+  --gold-light: #FFD166;
+  --teal: #00D4A4;
+  --rose: #FF4C6A;
+  --coral: #FF7A5C;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
+
+  --text-primary: #F0EEF8;
+  --text-muted: #6B6A8A;
+  --text-dim: #3A3958;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-dim);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Typography ──────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* ─── Card Component ──────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.card-accent-top {
+  position: relative;
+  overflow: hidden;
+}
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+/* ─── Form Elements ───────────────────────────────────────── */
+.input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 8px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Button Variants ─────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.btn-gold {
+  background: rgba(245, 166, 35, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+}
+.btn-teal {
+  background: rgba(0, 212, 164, 0.1);
+  color: var(--teal);
+  border: 1px solid rgba(0, 212, 164, 0.22);
+}
+
+/* ─── Tag / Badge ─────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+}
+
+.tag-purple {
+  background: rgba(108, 79, 255, 0.12);
+  color: var(--accent-light);
+  border: 1px solid rgba(108, 79, 255, 0.25);
+}
+.tag-gold {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--gold);
+  border: 1px solid rgba(245, 166, 35, 0.22);
+}
+.tag-teal {
+  background: rgba(0, 212, 164, 0.09);
+  color: var(--teal);
+  border: 1px solid rgba(0, 212, 164, 0.2);
+}
+.tag-red {
+  background: rgba(255, 76, 106, 0.08);
+  color: var(--rose);
+  border: 1px solid rgba(255, 76, 106, 0.18);
+}
+
+/* ─── Range Input ─────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border-strong);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+/* ─── Copy Block ──────────────────────────────────────────── */
+.copy-block {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.copy-hook { color: var(--gold-light); font-weight: 600; }
+.copy-body { color: #c8c4e0; line-height: 1.7; }
+.copy-cta  { color: var(--teal); font-weight: 600; }
+
+/* ─── Code Block ──────────────────────────────────────────── */
+.code-block {
+  background: #060610;
+  border: 1px solid rgba(108, 79, 255, 0.2);
+  border-radius: 10px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #b0acd4;
+  overflow-x: auto;
+}
+.code-kw  { color: var(--accent-light); }
+.code-str { color: var(--teal); }
+.code-cmt { color: var(--text-muted); }
+.code-fn  { color: var(--gold-light); }
+.code-num { color: var(--coral); }
+
+/* ─── Result Row ──────────────────────────────────────────── */
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+.result-row:last-child { border-bottom: none; }
+.result-label { font-size: 11px; color: var(--text-muted); }
+.result-value { font-family: var(--font-mono); font-size: 13px; font-weight: 500; }
+
+/* ─── Animations ──────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade { animation: fadeIn 0.3s ease forwards; }
+.animate-slide { animation: slideUp 0.4s ease forwards; }
+
+.loading-shimmer {
+  background: linear-gradient(90deg, var(--bg-dim) 25%, var(--bg-card) 50%, var(--bg-dim) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* ─── DB Table Component ──────────────────────────────────── */
+.db-table {
+  background: var(--bg-dim);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+}
+.db-header {
+  background: rgba(108, 79, 255, 0.18);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.db-header-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-light);
+}
+.db-row {
+  padding: 6px 14px;
+  display: grid;
+  grid-template-columns: 130px 90px 1fr;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 11.5px;
+  align-items: center;
+}
+.db-col  { color: var(--text-primary); font-family: var(--font-mono); }
+.db-type { color: var(--gold); font-family: var(--font-mono); }
+.db-note { color: var(--text-muted); font-size: 10.5px; }
+
+/* ─── Funnel Bar ──────────────────────────────────────────── */
+.funnel-bar {
+  height: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.funnel-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: width 0.6s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─── Nav Active State ────────────────────────────────────── */
+.nav-active {
+  background: rgba(108, 79, 255, 0.15);
+  color: var(--accent-light);
+  border-color: rgba(108, 79, 255, 0.25);
+}
